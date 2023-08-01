@@ -1,10 +1,10 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import style from './index.module.scss'
-
+import { Button } from 'antd-mobile'
 const Home: React.FC = () => {
   return (
     <>
+    <Button color='primary'>按钮</Button>
       <div className={style.title}>Home</div>
       <div className={style.box}>
       </div>
