@@ -5,16 +5,15 @@ import request from '@/utils/request'
 import { Button } from "antd-mobile";
 const Home: FC = () => {
   const [inputValue, setInputValue] = useState<string>("");
-  const [user, setUser] = useUserStore((state) => [
-    state.user,
-    state.setUserInfo,
-  ]);
+  const [user, setUser] = useUserStore((state) => [ state.user, state.setUser ]);
   useEffect(() => {
-    const fetchData = async () => {
-      // console.log(111)
-      request.get('/product/indexVipLive')
-    }
-    fetchData()
+    try {
+      const fetchData = async () => {
+        request.get('/product/indexVipLive')
+      }
+      fetchData()
+    } catch(e) {}
+
   }, [])
   return (  
     <>
@@ -23,7 +22,13 @@ const Home: FC = () => {
         onChange={(e) => setInputValue(e.target.value)}
       />
       <span>{user?.name}</span>
-      <Button color="primary" onClick={() => setUser({ name: inputValue })}>
+      <Button color="primary" onClick={() => {
+        request.get('/product/indexVipLive')
+        setUser({ name: inputValue })
+      }
+        
+        
+      }>
         按钮
       </Button>
       <div className={style.title}>Home</div>

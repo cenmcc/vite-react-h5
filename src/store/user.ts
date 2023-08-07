@@ -8,8 +8,8 @@ interface User {
 interface UserStore {
   user: User | null;
   token: string | null;
-  setUserInfo: (userInfo: UserStore["user"]) => void;
-  clearUserInfo: () => void;
+  setUser: (userInfo: UserStore["user"]) => void;
+  deleteUser: () => void;
   setToken: (token: UserStore["token"]) => void;
 }
 
@@ -21,15 +21,11 @@ const useUserStore = create<
     (set) => ({
       user: null,
       token: null,
-      setUserInfo: (userInfo) => set({ user: userInfo }),
-      clearUserInfo: () => set({ user: null }),
+      setUser: (userInfo) => set({ user: userInfo }),
+      deleteUser: () => set({ user: null }),
       setToken: (token) => set({ token }),
     }),
-    {
-      name: "user",
-      storage: createJSONStorage(() => sessionStorage),
-    }
+    { name: "user", storage: createJSONStorage(() => localStorage) }
   )
 );
-
 export { useUserStore };
