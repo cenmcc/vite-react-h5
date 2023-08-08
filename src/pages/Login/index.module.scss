@@ -1,0 +1,16 @@
+.login-box {
+  width: 350px;
+  padding: 30px;
+  box-sizing: border-box;
+}
+
+.check {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  --font-size: 10px;
+  margin: 50px auto 0;
+  a {
+    text-decoration: none;
+  }
+}

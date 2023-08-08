@@ -38,7 +38,7 @@ export default (configEnv: ConfigEnv): UserConfigExport => {
           postcssPxToRem({
             rootValue: 37.5,
             rootValuePC: 192,
-            selectorBlackList: ['.adm-'], // 忽略转换正则匹配项
+            selectorBlackList: ['.adm'], // 忽略转换正则匹配项
             propList: ["*"],
           }),
         ],
